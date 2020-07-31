@@ -21,8 +21,10 @@ class Client extends BaseClient
      *
      * @throws ClientError
      */
-    public function importOrder(array $infos,string $gz)
+    public function importOrder(array $infos)
     {
+        //TODO -- 使用Credential验证参数
+
         $this->setParams($infos);
 
         return $this->httpPostJson('/OrderManage/ImportData');

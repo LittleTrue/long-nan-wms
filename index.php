@@ -15,5 +15,5 @@ $ioc_con_app = new Application([
 $bankSrv = new OrderImportService($ioc_con_app);
 
 
-var_dump($bankSrv->importOrder($Data));
+var_dump($bankSrv->importOrder(['1'=> 1]));
 die();

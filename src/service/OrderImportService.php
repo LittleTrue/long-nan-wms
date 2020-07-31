@@ -26,7 +26,7 @@ class OrderImportService
      * @throws ClientError
      * @throws \Exception
      */
-    public function importOrder(array $infos,string $gz)
+    public function importOrder(array $infos)
     {
         if (empty($infos)) {
             throw new ClientError('参数缺失', 1000001);

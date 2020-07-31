@@ -44,6 +44,7 @@ trait MakesHttpRequests
             );
         }
 
+        //TODO -- 针对的业务和传输状态解析
         return json_decode($response->getBody()->getContents(), true);
         // switch ($result['code']) {
         //     /* 3002、3003 <==> 无效、过期 */
