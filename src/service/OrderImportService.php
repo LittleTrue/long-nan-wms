@@ -32,6 +32,6 @@ class OrderImportService
             throw new ClientError('参数缺失', 1000001);
         }
 
-        return $this->_orderImportClient->importOrder($infos,$gz);
+        return $this->_orderImportClient->importOrder($infos);
     }
 }

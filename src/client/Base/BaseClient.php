@@ -42,11 +42,10 @@ class BaseClient
     {
         //数据公共格式 -- TODO FIX
         $param = [
-            // 'MsgID'     => $this->generateMessageId(),
-            // 'Data'      => $json,
-            // 'Timestamp' => $this->getTimestamp(13),
+            'Datas'       => $json,
+            'PlateCode'   => 'YWD',
+            'EntreCordNo' => 'YWD',
         ];
-
 
         $this->json = $param;
     }
@@ -132,8 +131,8 @@ class BaseClient
         $options[RequestOptions::HEADERS] = [
             'Content-Type' => 'application/json',
             'timestamp'    => $time,
-            'Account'=> $this->app['config']->get('Account'),
-            'Password'=> $this->app['config']->get('Password'),
+            'Account'      => $this->app['config']->get('Account'),
+            'Password'     => $this->app['config']->get('Password'),
         ];
         return $options;
     }
