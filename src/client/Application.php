@@ -2,8 +2,8 @@
 
 namespace LongNan\LongNanWmsClient;
 
-use Pimple\Container;
 use LongNan\LongNanWmsClient\Base\Config;
+use Pimple\Container;
 
 /**
  * Class Application.
@@ -16,6 +16,7 @@ class Application extends Container
     protected $providers = [
         Base\ServiceProvider::class,
         OrderImport\ServiceProvider::class,
+        SearchData\ServiceProvider::class,
     ];
 
     /**
