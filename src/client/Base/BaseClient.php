@@ -41,11 +41,7 @@ class BaseClient
     public function setParams(array $json)
     {
         //数据公共格式 -- TODO FIX
-        $param = [
-            'Datas'       => $json,
-            'PlateCode'   => 'YWD',
-            'EntreCordNo' => 'YWD',
-        ];
+        $param = $json;
 
         $this->json = $param;
     }

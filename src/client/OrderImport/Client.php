@@ -32,6 +32,20 @@ class Client extends BaseClient
         //TODO -- 使用Credential验证参数
         $this->credentialValidate->setRule(
             [
+                'Datas'       => 'require',
+                'PlateCode'   => 'require',
+                'EntreCordNo' => 'require',
+            ]
+        );
+        //验证平台代码和电商代码
+        if (!$this->credentialValidate->check($infos)) {
+            throw new ClientError('主体配置' . $this->credentialValidate->getError());
+        }
+
+        $data = $infos['Datas'];
+
+        $this->credentialValidate->setRule(
+            [
                 'OrderNo'             => 'require|max:60',
                 'Waybillno'           => 'max:60',
                 'EnterpriseCode'      => 'require|max:10',
@@ -55,7 +69,7 @@ class Client extends BaseClient
             ]
         );
         //验证订单表头配置
-        foreach ($infos as $k => $v) {
+        foreach ($data as $k => $v) {
             if (!$this->credentialValidate->check($v['Head'])) {
                 throw new ClientError('订单表头配置' . $this->credentialValidate->getError());
             }
@@ -72,7 +86,7 @@ class Client extends BaseClient
             ]
         );
 
-        foreach ($infos as $key => $value) {
+        foreach ($data as $key => $value) {
             //验证订单表体配置
             foreach ($value['Body'] as $k => $v) {
                 if (!$this->credentialValidate->check($v)) {
