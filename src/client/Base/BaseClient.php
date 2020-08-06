@@ -40,10 +40,7 @@ class BaseClient
      */
     public function setParams(array $json)
     {
-        //数据公共格式 -- TODO FIX
-        $param = $json;
-
-        $this->json = $param;
+        $this->json = $json;
     }
 
     /**
@@ -78,22 +75,6 @@ class BaseClient
         return $this->requestPost($uri, [RequestOptions::JSON => $this->json]);
     }
 
-    /**
-     * 获取特定位数时间戳.
-     * @return int
-     */
-    public function getTimestamp($digits = 10)
-    {
-        $digits = $digits > 10 ? $digits : 10;
-
-        $digits = $digits - 10;
-
-        if ((!$digits) || (10 == $digits)) {
-            return time();
-        }
-
-        return number_format(microtime(true), $digits, '', '') - 50000;
-    }
 
     /**
      * @throws ClientError
@@ -105,15 +86,6 @@ class BaseClient
         return $this->request('POST', $uri, $options);
     }
 
-    /**
-     * 获取报文流水号.
-     * @return string
-     */
-    protected function generateMessageId()
-    {
-        return date('ymd') . substr(substr(microtime(), 2, 6)
-        * time(), 2, 6) . mt_rand(1000, 9999);
-    }
 
     /**
      * set Headers.

@@ -29,7 +29,7 @@ class Client extends BaseClient
      */
     public function importOrder(array $infos)
     {
-        //TODO -- 使用Credential验证参数
+        //使用Credential验证参数
         $this->credentialValidate->setRule(
             [
                 'Datas'       => 'require',
