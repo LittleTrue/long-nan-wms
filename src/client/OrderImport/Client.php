@@ -23,7 +23,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 购付汇申请.
+     * 订单导入.
      *
      * @throws ClientError
      */
