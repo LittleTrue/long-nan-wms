@@ -26,13 +26,13 @@ class SearchDataService
      * @throws ClientError
      * @throws \Exception
      */
-    public function SearchOrder(array $infos)
+    public function searchOrder(array $infos)
     {
         if (empty($infos)) {
             throw new ClientError('参数缺失', 1000001);
         }
 
-        return $this->_searchDataClient->SearchOrder($infos);
+        return $this->_searchDataClient->searchOrder($infos);
     }
 
     /**
@@ -41,12 +41,12 @@ class SearchDataService
      * @throws ClientError
      * @throws \Exception
      */
-    public function SearchGoods(array $infos)
+    public function searchGoods(array $infos)
     {
         if (empty($infos)) {
             throw new ClientError('参数缺失', 1000001);
         }
 
-        return $this->_searchDataClient->SearchGoods($infos);
+        return $this->_searchDataClient->searchGoods($infos);
     }
 }

@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @throws ClientError
      */
-    public function SearchOrder(array $infos)
+    public function searchOrder(array $infos)
     {
         //使用Credential验证参数
         $this->credentialValidate->setRule(
@@ -63,7 +63,7 @@ class Client extends BaseClient
     /**
      * 商品货号库查询.
      */
-    public function SearchGoods($infos)
+    public function searchGoods($infos)
     {
         $this->credentialValidate->setRule(
             [
